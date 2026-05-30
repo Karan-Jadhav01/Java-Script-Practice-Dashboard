@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Practice Dashboard</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-text">
+            <p class="eyebrow">Practice dashboard</p>
+            <h1>JavaScript study tracker</h1>
+            <p class="subtitle">Track your sessions, total time, and streaks with an easy practice log.</p>
+        </div>
+        <div class="topbar-chip">Stay consistent</div>
+    </header>
+
+    <main class="container">
+        <section class="stats-grid">
+            <article class="card">
+                <h2>Today</h2>
+                <p class="stat" id="todaySessions">0 sessions</p>
+                <p class="meta" id="todayTime">0 min</p>
+            </article>
+            <article class="card">
+                <h2>Total</h2>
+                <p class="stat" id="totalSessions">0 sessions</p>
+                <p class="meta" id="totalTime">0 min</p>
+            </article>
+            <article class="card highlight">
+                <h2>Streak</h2>
+                <p class="stat" id="currentStreak">0 days</p>
+                <p class="meta" id="bestStreak">best 0</p>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Log practice</h2>
+                    <p>Save each session and review your progress over time.</p>
+                </div>
+            </div>
+            <form id="practiceForm" class="practice-form">
+                <label class="field">
+                    <span>Date</span>
+                    <input type="date" id="practiceDate" required>
+                </label>
+                <label class="field">
+                    <span>Topic</span>
+                    <input type="text" id="practiceTopic" placeholder="e.g. DOM, loops, async" required>
+                </label>
+                <label class="field">
+                    <span>Minutes</span>
+                    <input type="number" id="practiceMinutes" min="1" value="30" required>
+                </label>
+                <button type="submit" class="btn-primary">Add record</button>
+            </form>
+        </section>
+
+        <section class="records-panel">
+            <div class="records-header">
+                <div>
+                    <h2>Practice records</h2>
+                    <p>Review your session history and keep momentum.</p>
+                </div>
+                <button id="clearRecords" class="btn-secondary">Clear all</button>
+            </div>
+            <div class="table-wrap">
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Topic</th>
+                            <th>Minutes</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsBody">
+                        <tr>
+                            <td colspan="4" class="empty">No practice records yet. Add a session to start.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="compiler-panel">
+            <div class="records-header">
+                <div>
+                    <h2>Practice compiler</h2>
+                    <p>Write JavaScript code and run it instantly in the browser.</p>
+                </div>
+            </div>
+            <div class="compiler-grid">
+                <textarea id="codeEditor" class="code-editor" spellcheck="false">// Example:
+console.log('Hello JavaScript practice!');
+</textarea>
+                <div class="output-panel">
+                    <div class="output-header">
+                        <span>Output</span>
+                        <button id="clearOutput" type="button" class="btn-secondary">Clear output</button>
+                    </div>
+                    <pre id="codeOutput" class="output-box">Run code to see output.</pre>
+                </div>
+            </div>
+            <div class="compiler-actions">
+                <button id="runCode" type="button" class="btn-primary">Run code</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+</html>
